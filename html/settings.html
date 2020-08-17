@@ -1,0 +1,81 @@
+<style type="text/css">
+    #root .card .card-header ul.nav { float: left; }
+    #root .card .card-header button { float: right; }
+    #root .card .card-header label { float: right; }
+    #root .card { border: none; }
+</style>
+<div id="setting-layer" class="card">
+    <div class="card-header bg-transparent">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">数据源</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">代码模板</a>
+            </li>
+        </ul>
+        <button id="export-config" type="button" class="btn btn-link" style="margin-right: 50px;">导出配置</button>
+        <label id="import-config" style="margin-right: 0px; margin-top: 0.4rem;" data-toggle="tooltip" data-placement="bottom"
+               data-html="true" title="如果要导入配置，请将 <u><b>.usac</b></u> 结尾的文件直接拖入Utools输入框"> 💡</label>
+    </div>
+    <div class="card-body">
+        <div class="container data-source-panel">
+            <form>
+                <div class="form-group row">
+                    <legend class="col-form-label col-sm-2">Swagger Url</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="urlDataSource" id="source-json" value="json">
+                            <label class="form-check-label" for="source-json">
+                                JSON数组
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="urlDataSource" id="source-js" value="js">
+                            <label class="form-check-label" for="source-js">
+                                JS脚本
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2" id="source-tips">
+                        <div>支持的yaml url格式：<code>http://.../xxx.html?url=yyy.yaml</code> 或者 <code>http://.../yyy.yaml</code></div>
+                        <br/>
+                        <div id="source-json-tips">
+                            请在以下输入框中输入文档数据源，格式：<br/>
+                            <code>
+                                [{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;title: "<填入文档名称>",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;url: "<填入 yaml url 地址>"<br/>
+                                }]
+                            </code><br/>
+                        </div>
+                        <div id="source-js-tips">
+                            请在以下代码框中实现获取yaml url的逻辑代码。<br/>
+                            需要返回的数据结构：<br/>
+                            <code>
+                                [{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;title: "&lt;填入文档名称&gt;",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;url: "&lt;填入 yaml url 地址&gt;"<br/>
+                                }]
+                            </code><br/>
+                            最后执行 <code>onUrlPrepared(result)</code> 返回结果
+                        </div>
+                    </div>
+                </div>
+                <div id="swagger-js-test-layer" class="form-group row">
+                    <div class="col-sm-2 col-offset-10">
+                        <button id="swagger-js-test" type="button" class="btn btn-primary">测试JS</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <textarea class="form-control" id="source-data" rows="10" style="display: none;"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

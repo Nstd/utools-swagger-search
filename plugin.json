@@ -1,0 +1,29 @@
+{
+  "pluginName": "SwaggerSearch",
+  "version": "0.0.1",
+  "description": "搜索Swagger中的api",
+  "author": "Nstd",
+  "logo": "logo.png",
+  "preload": "preload.js",
+  "features": [
+    {
+      "code": "api",
+      "explain": "搜索协议",
+      "cmds":["api", "apiWeb"]
+    },
+    {
+      "code": "apiSettings",
+      "explain": "Swagger搜索设置",
+      "cmds": [
+        "apiSettings",
+        {
+          "type": "files",
+          "label": "导入Swagger配置",
+          "fileType": "file",
+          "match": "/.usac$/",
+          "minLength": 1,
+          "maxLength": 1
+        }]
+    }
+  ]
+}

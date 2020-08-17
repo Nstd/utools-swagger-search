@@ -1,0 +1,24 @@
+{
+  "name": "utools-swagger",
+  "version": "1.0.0",
+  "description": "Swagger api search",
+  "main": "dist/preload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "utools",
+    "swagger"
+  ],
+  "author": "Nstd",
+  "license": "ISC",
+  "dependencies": {
+    "element-ui": "^2.13.2",
+    "fs": "0.0.1-security",
+    "jquery": "^3.5.1",
+    "request": "^2.88.2",
+    "underscore": "^1.10.2",
+    "vue": "^2.6.11",
+    "yaml": "^1.10.0"
+  }
+}
