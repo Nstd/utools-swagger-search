@@ -1,6 +1,6 @@
 {
   "pluginName": "SwaggerSearch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "搜索Swagger中的api",
   "author": "Nstd",
   "logo": "logo.png",

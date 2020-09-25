@@ -312,12 +312,21 @@ class SwaggerSearch {
         let ub = window.utools.ubrowser.goto(data.obj.docUrl + "#" + data.obj.slash)
             .click(parentSelector)
             .click(selector)
-            .devTools()
+            // .devTools()
             .evaluate(ExportHelper.swaggerFileImport)
-            .wait(1000)
-            .evaluate(ExportHelper.swaggerCodeExport);
+            // .wait(500)
+            .evaluate(ExportHelper.swaggerCodeExport)
+            .wait(500)
+            .evaluate(function() {
+                try {
+                    var hash = decodeURIComponent(location.hash.substr(1, location.hash.length)).replace("/", "_")
+                    document.getElementById(hash).scrollIntoView()
+                } catch(e) {
+                    console.log(e);
+                }
+            });
         ub.run({
-                width: 1200,
+                width: 1100,
                 height: 1000,
                 center: true
             });
